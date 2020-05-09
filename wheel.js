@@ -48,7 +48,7 @@ function loadWheel(){
 
 		// Basic alert of the segment text which is the prize name.
 		spinning=false;
-		alert("You have won " + winningSegment.text + "!");
+		alert(" winningSegment.text + " !");
 		theWheel.rotationAngle = 0;
 		theWheel.draw();
 		drawTriangle();
@@ -64,7 +64,7 @@ function loadWheel(){
 			         var ctx = theWheel.ctx;
 
 			         ctx.strokeStyle = 'navy';     // Set line colour.
-			         ctx.fillStyle   = 'black';     // Set fill colour.
+			         ctx.fillStyle   = '#FF0000';     // Set fill colour.
 			         ctx.lineWidth   = 2;
 			         ctx.beginPath();              // Begin path.
 			         ctx.moveTo(405, 0);           // Move to initial position.

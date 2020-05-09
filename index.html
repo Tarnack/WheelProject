@@ -9,14 +9,27 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+		<style>
+			#fileWheel-label {
+				// cursor: pointer;
+				/* Style as you please, it will become the visible UI component. */
+			}
+			#fileWheel {
+				opacity: 0;
+				position: absolute;
+				z-index: -1;
+			}
+		</style>
   </head>
-	<body>
+	<body style="background-color:black">
 		<table>
 			<tr>
 				<td>
+					<label class="waves-effect waves-light btn" id="fileWheel-label" for="fileWheel" >Charger une roue</label>
     			<input id="fileWheel" type="file" name="choisir la roue" accept=".json"/ onchange="loadWheel()">
+
+					<a class="waves-effect waves-light btn" id="dlExemple" OnClick="exemple()">Télécharger un exemple de roue</a>
 				</td>
-				<td></td>
 			</tr>
 			<tr>
 				<td>
@@ -30,12 +43,6 @@
 					<a class="waves-effect waves-light btn" id="load1" OnClick="load1()">Charger roue 1</a>
 				</td>
 			-->
-			</tr>
-			<tr>
-				<td>
-					<a class="waves-effect waves-light btn" id="dlExemple" OnClick="exemple()">Télécharger un exemple de roue</a>
-				</td>
-				<td></td>
 			</tr>
 		</table>
 	</body>
