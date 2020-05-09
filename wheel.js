@@ -48,7 +48,7 @@ function loadWheel(){
 
 		// Basic alert of the segment text which is the prize name.
 		spinning=false;
-		alert(" winningSegment.text + " !");
+		alert(winningSegment.text + " !");
 		theWheel.rotationAngle = 0;
 		theWheel.draw();
 		drawTriangle();
