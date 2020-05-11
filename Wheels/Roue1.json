@@ -1,0 +1,11 @@
+[
+	 {"fillStyle" : "aqua", "text" : "1 jour"},
+	 {"fillStyle" : "red", "text" : "1d6 jours"},
+	 {"fillStyle" : "aqua", "text" : "6d6 heures"},
+	 {"fillStyle" : "red", "text" : "3 jours"},
+	 {"fillStyle" : "aqua", "text" : "1d20 X4 heures"},
+	 {"fillStyle" : "red", "text" : "2 relances"},
+	 {"fillStyle" : "aqua", "text" : "2 jours"},
+	 {"fillStyle" : "lime", "text" : "Rien :P"},
+	 {"fillStyle" : "red", "text" : "1d6 X12 heures"}
+]
