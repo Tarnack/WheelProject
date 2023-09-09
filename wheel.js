@@ -2,21 +2,20 @@ var spinning = false;
 
 
 function newWheel(segm){
-theWheel = new Winwheel({
-							 'numSegments'  : segm.length,         // Number of segments
-        'outerRadius'    : 400,
-							 'textFontSize' : 28,        // Font size.
-							 'segments'     : segm       // Definition of all the segments.
-							 ,
-							 'animation' :               // Definition of the animation
-							 {
-									 'type'     : 'spinToStop',
-									 'duration' : 15,
-									 'spins'    : 4,
-									 'callbackFinished' : 'alertPrize()',
-									 'callbackAfter' : 'drawTriangle()'
-							 }
-					 });
+	theWheel = new Winwheel({
+		'numSegments'  : segm.length,         // Number of segments
+		'outerRadius'    : 400,
+		'textFontSize' : 28,        // Font size.
+		'segments'     : segm,       // Definition of all the segments.
+		'animation' :               // Definition of the animation
+		{
+			'type'     : 'spinToStop',
+			'duration' : 10,
+			'spins'    : 10,
+			'callbackFinished' : 'alertPrize()',
+			'callbackAfter' : 'drawTriangle()'
+		}
+	});
 }
 
 newWheel([
@@ -30,7 +29,7 @@ newWheel([
 	 {'fillStyle' : '#e7706f', 'text' : 'Prize 8'}
 ])
 function loadWheel(){
-	console.log()
+	console.log("Loading wheel")
 
 	var file = $("#fileWheel")[0].files[0];
 	var reader = new FileReader();
@@ -41,39 +40,37 @@ function loadWheel(){
 		newWheel(jsonWheel);
 	}
 }
-	function alertPrize()
-	{
-		// Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
-		var winningSegment = theWheel.getIndicatedSegment();
+function alertPrize(){
+	// Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
+	var winningSegment = theWheel.getIndicatedSegment();
 
-		// Basic alert of the segment text which is the prize name.
-		spinning=false;
-		alert(winningSegment.text + " !");
-		theWheel.rotationAngle = 0;
-		theWheel.draw();
-		drawTriangle();
-	}
+	// Basic alert of the segment text which is the prize name.
+	spinning=false;
+	$("#result").html(winningSegment.text)
+	$("#result").css("color", winningSegment.fillStyle)
+	theWheel.animation.spins +=10
+}
 
 
-					 // Function to draw pointer using code (like in a previous tutorial).
-			     drawTriangle();
+// Function to draw pointer using code (like in a previous tutorial).
+drawTriangle();
 
-			     function drawTriangle()
-			     {
-			         // Get the canvas context the wheel uses.
-			         var ctx = theWheel.ctx;
+function drawTriangle()
+{
+	// Get the canvas context the wheel uses.
+	var ctx = theWheel.ctx;
 
-			         ctx.strokeStyle = 'navy';     // Set line colour.
-			         ctx.fillStyle   = '#FF0000';     // Set fill colour.
-			         ctx.lineWidth   = 2;
-			         ctx.beginPath();              // Begin path.
-			         ctx.moveTo(405, 0);           // Move to initial position.
-			         ctx.lineTo(435, 0);           // Draw lines to make the shape.
-			         ctx.lineTo(420, 30);
-			         ctx.lineTo(405, 0);
-			         ctx.stroke();                 // Complete the path by stroking (draw lines).
-			         ctx.fill();                   // Then fill.
-			     }
+	ctx.strokeStyle = 'navy';     // Set line colour.
+	ctx.fillStyle   = '#FF0000';     // Set fill colour.
+	ctx.lineWidth   = 2;
+	ctx.beginPath();              // Begin path.
+	ctx.moveTo(405, 0);           // Move to initial position.
+	ctx.lineTo(435, 0);           // Draw lines to make the shape.
+	ctx.lineTo(420, 30);
+	ctx.lineTo(405, 0);
+	ctx.stroke();                 // Complete the path by stroking (draw lines).
+	ctx.fill();                   // Then fill.
+}
 function spin(){
 	if(spinning)
 		return;

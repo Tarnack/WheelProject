@@ -3,15 +3,15 @@
 		<title>Pfudor</title>
 		<script src="lib/winwheel/Winwheel.js"></script>
 		<script src="lib/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+		<!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 		<style>
 			#fileWheel-label {
-				// cursor: pointer;
+				/* cursor: pointer; */
 				/* Style as you please, it will become the visible UI component. */
 			}
 			#fileWheel {
@@ -20,16 +20,16 @@
 				z-index: -1;
 			}
 		</style>
-  </head>
-	<body style="background-color:black">
+	</head>
+		<body style="background-color:black">
 		<table>
 			<tr>
-				<td>
-					<label class="waves-effect waves-light btn" id="fileWheel-label" for="fileWheel" >Charger une roue</label>
-    			<input id="fileWheel" type="file" name="choisir la roue" accept=".json"/ onchange="loadWheel()">
-
+				<td width="1000">
+					<label class="waves-effect waves-light btn" id="fileWheel-label" for="fileWheel" >Changer de roue</label>
+    				<input id="fileWheel" type="file" name="choisir la roue" accept=".json" onchange="loadWheel()">
 					<a class="waves-effect waves-light btn" id="dlExemple" OnClick="exemple()">Télécharger un exemple de roue</a>
 				</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>
@@ -38,11 +38,17 @@
     			</canvas>
 					<script src="wheel.js"></script>
 				</td>
-				<!--
+				<td>
+					<div>
+						<h1 id="result"></h1>
+					</div>
+				</td>
+				<!-- 				
 				<td>
 					<a class="waves-effect waves-light btn" id="load1" OnClick="load1()">Charger roue 1</a>
-				</td>
-			-->
+				</td> 
+				-->
+
 			</tr>
 		</table>
 	</body>
